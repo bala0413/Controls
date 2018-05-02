@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<head>
+    <base href="/">
+</head>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<body data-ng-app="ProductModule">
+    <div>
+        <div>
+            <div>
+                <table cellpadding="5" cellspacing="6" width="100%" style="background-color:whitesmoke; border:solid 4px green;">
+                    <tr>
+                        <td style="border: solid 1px gray; width:170px; text-align:center;"><a href="showproduct"> Show All Product </a></td>
+                        <td style="border: solid 1px gray; width:170px; text-align:center;"><a href="addproduct"> Add New Product </a></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <div data-ng-view></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular-route.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/Module.js")"></script>
+    <script src="~/MyScripts/Services.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/ShowProductsController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/AddProductController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/EditProductController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/DeleteProductController.js")"></script>
+}

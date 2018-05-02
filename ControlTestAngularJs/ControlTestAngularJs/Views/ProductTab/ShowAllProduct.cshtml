@@ -1,0 +1,33 @@
+﻿<table>
+    <tr>
+        <td height="10px"></td>
+    </tr>
+</table>
+<table cellpadding="5" cellspacing="6" width="90%" align="center" style="border:solid 2px red; padding-top:20px;">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Unit</th>
+            <th>Price</th>
+            <th>ExpiriyDate</th>
+            <th>Languages</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="pr in ProductTabs">
+            <td>{{pr.id}}</td>
+            <td>{{pr.name}}</td>
+            <td>{{pr.color}}</td>
+            <td>{{pr.unit}}</td>
+            <td>{{pr.price}}</td>
+            <td>{{pr.expiriyDate}}</td>
+            <td>{{pr.languages}}</td>
+            <td><a ng-click="editProduct(pr.id)">Edit</a></td>
+            <td><a ng-click="deleteProduct(pr.id)">Delete</a></td>
+        </tr>
+    </tbody>
+</table>

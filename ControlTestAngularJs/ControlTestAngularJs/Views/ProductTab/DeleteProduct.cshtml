@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Delete Product";
+}
+
+<table><tr><td height="10px"></td></tr></table>
+
+<table cellpadding="4" cellspacing="4" width="70%" align="center" style="border:solid 2px red; padding-top:20px;">
+    <tr><td colspan="3" style="text-align:center;">Delete Product Information</td></tr>
+    <tr>
+
+        <td style="text-align:right;">Product ID</td>
+        <td>{{ProductTabs.id}}  </td>
+    </tr>
+    <tr>
+
+        <td style="text-align:right;">Name # </td>
+        <td> {{ProductTabs.name}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">Color # </td>
+        <td>{{ProductTabs.color}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">Unit # </td>
+        <td>{{ProductTabs.unit}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">Price # </td>
+        <td>{{ProductTabs.price}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">Expiry Date # </td>
+        <td>{{ProductTabs.expiriyDate}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">Languages # </td>
+        <td>{{ProductTabs.languages}}  </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="button" value="Delete" ng-click="delete()" />
+        </td>
+    </tr>
+
+</table>
+
