@@ -4,6 +4,11 @@
         return $http.get("/api/ColorTabsAPI");
     };
 
+    this.getColor = function (id) {
+        return $http.get("/api/ColorTabsAPI/" + id);
+    };
+
+
     this.getProducts = function () {
         return $http.get("/api/ProductTabsAPI");
     };

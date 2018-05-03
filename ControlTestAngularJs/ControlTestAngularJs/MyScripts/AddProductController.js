@@ -15,37 +15,37 @@
     }
 
 
-    //$scope.GetValue = function () {
-    //    var message = "";
-    //    for (var i = 0; i < $scope.ColorTabs.length; i++) {
-    //        if ($scope.ColorTabs[i].Selected) {
-    //            var id = $scope.ColorTabs[i].id;
-    //            var languages = $scope.ColorTabs[i].languages;
-    //            message = "Value: " + id + " Text: " + languages + "\n";
-    //        }
-    //    }
-
-    //    alert(message);
-    //}
-
-    //Languages = {
-
-    //    $scope.ColorTabs.forEach(function (c) {
-
-    //        if (c.Id) {
-
-    //            // If this is not the first item
-    //            if (Languages) {
-    //                optionsCSV += ','
-    //            }
-    //            Languages += c.Languages;
-    //        }
-
-    //    })
-    //},
-
-
     $scope.save = function () {
+       
+        var optionsCSV = '';
+
+        $scope.ColorTabs.forEach(function (c) {
+    
+
+            if (c.id=c.Selected) {
+
+              
+                if (optionsCSV) {
+                    optionsCSV += ','
+                }
+                optionsCSV += c.languages;
+                $scope.Languages = optionsCSV;
+            }
+        })
+      
+        alert(optionsCSV);
+
+        //var message = "";
+        //for (var i = 0; i < $scope.ColorTabs.length; i++) {
+        //    if ($scope.ColorTabs[i].Selected) {
+        //        var id = $scope.ColorTabs[i].id;
+        //        var languages = $scope.ColorTabs[i].languages;
+        //        message =  languages ;              
+        //    }
+        //    $scope.Languages = message;
+
+        //}       
+
 
         var ProductTabs = {
             Id: $scope.Id,
@@ -55,6 +55,7 @@
             Price: $scope.Price,
             ExpiriyDate: $scope.ExpiriyDate,
             Languages: $scope.Languages
+
         };
         
 
@@ -66,8 +67,6 @@
         },
             function (errorPl) {
                 $scope.error = 'failure loading Product', errorPl;
-            });
-       
+            });       
     };
-
 });

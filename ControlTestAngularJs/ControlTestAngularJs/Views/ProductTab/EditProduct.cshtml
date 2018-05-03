@@ -13,8 +13,8 @@
     <tr>
         <td style="text-align:right;">Color</td>
         <td>
-            <select name="dropdown" ng-model="Color" data-ng-options="c.color as c.color for c in ColorTabs">
-                <option selected="selected">Select</option>
+            <select name="dropdown" ng-model="ProductTabs.color" data-ng-options="c.color as c.color for c in ColorTabs">
+                <option value="" selected>Select</option>
             </select>
         </td>
     </tr>
@@ -36,9 +36,10 @@
     <tr>
         <td style="text-align:right;">Languages</td>
         <td>
-            <select multiple="" ng-model="ProductTabs.languages">
-              
-            </select>
+            <label ng-repeat="c in ColorTabs">
+                <input type="checkbox" ng-model="c.Selected" />
+                <label>{{c.languages}}</label>
+            </label>
         </td>
     </tr>
 

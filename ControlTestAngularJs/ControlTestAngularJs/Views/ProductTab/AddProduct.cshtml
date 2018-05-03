@@ -70,18 +70,18 @@
             @*<label ng-repeat="c in ColorTabs" ng-model="Languages">
                 <input id="{{c.id}}" type="checkbox" ng-model="c.Selected" />
                 {{c.languages}}
-            </label>
-            <input type="button" value="Get" ng-click="GetValue()" />*@
+            </label>*@
 
-            <label ng-repeat="c in ColorTabs" ng-model="Languages">
+
+            <label ng-repeat="c in ColorTabs">
+                <input type="checkbox" ng-model="c.Selected" />
                 <label>{{c.languages}}</label>
-                <input type="checkbox" ng-model="c.id"/>
             </label>
 
 
 
 
-            @*<select name="multiple" multiple class="listMutiple">
+            @* <select name="multiple" multiple class="listMutiple">
                 <option ng-model="Languages" ng-repeat="c in ColorTabs" value="{{c.languages}}">{{c.languages}}</option>
             </select>
 
