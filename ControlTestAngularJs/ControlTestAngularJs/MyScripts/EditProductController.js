@@ -30,30 +30,29 @@
 
     $scope.save = function () {
 
-        //var optionsCSV = '';
+        var optionsCSV = '';
 
-        //$scope.ColorTabs.forEach(function (c) {
-        //    if (c.id = c.Selected) {                
-        //        if (optionsCSV) {
-        //            optionsCSV += ','
-        //        }
-        //        optionsCSV += c.languages;
-        //        $scope.ProductTabs.languages = optionsCSV;
-        //    }
-        //})
-
-        //alert(optionsCSV);
-
-         var message = "";
-        for (var i = 0; i < $scope.ColorTabs.length; i++) {
-            if ($scope.ColorTabs[i].Selected) {
-                var id = $scope.ColorTabs[i].id;
-                var languages = $scope.ColorTabs[i].languages;
-                message =  languages ;              
+        $scope.ColorTabs.forEach(function (c) {
+            if (c.id = c.Selected) {                
+                if (optionsCSV) {
+                    optionsCSV += ','
+                }
+                optionsCSV += c.languages;
+                $scope.ProductTabs.languages = optionsCSV;
             }
-            $scope.ProductTabs.languages = message;
+        })
+        alert(optionsCSV);
 
-        }       
+        // var message = "";
+        //for (var i = 0; i < $scope.ColorTabs.length; i++) {
+        //    if ($scope.ColorTabs[i].Selected) {
+        //        var id = $scope.ColorTabs[i].id;
+        //        var languages = $scope.ColorTabs[i].languages;
+        //        message =  languages ;              
+        //    }
+        //    $scope.ProductTabs.languages = message;
+
+        //}       
 
 
         var ProductTabs = {
@@ -65,6 +64,7 @@
             ExpiriyDate: $scope.ProductTabs.expiriyDate,
             Languages: $scope.ProductTabs.languages,
         };
+
 
         var promisePutProduct = SPACRUDService.put($scope.ProductTabs.id, ProductTabs);
         promisePutProduct.then(function (pl) {
