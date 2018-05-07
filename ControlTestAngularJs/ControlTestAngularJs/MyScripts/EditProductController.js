@@ -5,7 +5,37 @@
         var promiseGetColor = SPACRUDService.getColors();
         promiseGetColor.then(function (response) {
             alert('Edit Product Page');
-            $scope.ColorTabs = response.data
+            $scope.ColorTabs = response.data;
+            $scope.ColorTabs.forEach(function (c) {
+                if (ShareData.value.languages != undefined && ShareData.value.languages != null) {
+                    var languageSeletced = ShareData.value.languages.split(',');
+                    for (var i = 0; i < languageSeletced.length; i++) {
+                        if (languageSeletced[i] == c.languages) {
+
+                            c.Selected = true;
+
+                        }
+
+
+                    }
+                }
+            })
+
+            $scope.ColorTabs.forEach(function (c) {
+                if (ShareData.value.languages != undefined && ShareData.value.languages != null) {
+                    var languageSeletced = ShareData.value.languages.split(',');
+                    for (var i = 0; i < languageSeletced.length; i++) {
+                        if (languageSeletced[i] == c.languages) {
+
+                            $scope.ProductTabs.unit = true;
+
+                        }
+
+
+                    }
+                }
+            })
+
             console.log($scope.ColorTabs);
         },
             function (errorPl) {
@@ -14,19 +44,23 @@
     }
 
 
-    getProduct();
+    
     function getProduct() {
-      
-        var promiseGetProduct = SPACRUDService.getProduct(ShareData.value);
+        
+
+        var promiseGetProduct = SPACRUDService.getProduct(ShareData.value.id);
 
         promiseGetProduct.then(function (pl) {
             $scope.ProductTabs = pl.data;
         },
-            function (errorPl) {
-                alert('product edit failure');
-                $scope.error = 'failure loading Product', errorPl;
+        function (errorPl) {
+            alert('product edit failure');
+            $scope.error = 'failure loading Product', errorPl;
             });
+
+       
     }
+     getProduct();
 
     $scope.save = function () {
 
@@ -41,7 +75,6 @@
                 $scope.ProductTabs.languages = optionsCSV;
             }
         })
-        alert(optionsCSV);
 
         // var message = "";
         //for (var i = 0; i < $scope.ColorTabs.length; i++) {
@@ -59,11 +92,13 @@
             Id: $scope.ProductTabs.id,
             Name: $scope.ProductTabs.name,
             Color: $scope.ProductTabs.color,
-            Unit: $scope.ProductTabs.unit,
+            Unit: $scope.ProductTabs.unit.toString(),
             Price: $scope.ProductTabs.price,
             ExpiriyDate: $scope.ProductTabs.expiriyDate,
-            Languages: $scope.ProductTabs.languages,
+            Languages: $scope.ProductTabs.languages
         };
+
+
 
 
         var promisePutProduct = SPACRUDService.put($scope.ProductTabs.id, ProductTabs);

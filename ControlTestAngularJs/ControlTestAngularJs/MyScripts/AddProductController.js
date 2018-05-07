@@ -32,8 +32,6 @@
                 $scope.Languages = optionsCSV;
             }
         })
-      
-        alert(optionsCSV);
 
         //var message = "";
         //for (var i = 0; i < $scope.ColorTabs.length; i++) {
@@ -51,10 +49,10 @@
             Id: $scope.Id,
             Name: $scope.Name,
             Color: $scope.Color,
-            Unit: $scope.Unit,
+            Unit: $scope.Unit.toString(),
             Price: $scope.Price,
             ExpiriyDate: $scope.ExpiriyDate,
-            Languages: $scope.Languages
+            Languages: $scope.Languages,
 
         };
         
@@ -66,6 +64,7 @@
             alert("Product Saved Successfully.");
         },
             function (errorPl) {
+                alert('error');
                 $scope.error = 'failure loading Product', errorPl;
             });       
     };

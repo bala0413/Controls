@@ -9,10 +9,10 @@
             <th>Product ID</th>
             <th>Name</th>
             <th>Color</th>
-            <th>Unit</th>
+            <th>Description Language</th>
             <th>Price</th>
             <th>ExpiriyDate</th>
-            <th>Languages</th>
+            <th>UserGuide Languages</th>
             <th></th>
             <th></th>
         </tr>
@@ -26,7 +26,7 @@
             <td>{{pr.price}}</td>
             <td>{{pr.expiriyDate}}</td>
             <td>{{pr.languages}}</td>
-            <td><a ng-click="editProduct(pr.id)">Edit</a></td>
+            <td><a ng-click="editProduct(pr)">Edit</a></td>
             <td><a ng-click="deleteProduct(pr.id)">Delete</a></td>
         </tr>
     </tbody>

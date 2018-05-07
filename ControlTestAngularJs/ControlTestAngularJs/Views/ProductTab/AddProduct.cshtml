@@ -8,6 +8,8 @@
 <table cellpadding="4" cellspacing="4" width="90%" align="center" style="border:solid 2px red; padding-top:20px;">
 
     <tr>
+
+
         <td style="text-align:right;">Name</td>
         <td><input type="text" ng-model="Name" />  </td>
     </tr>
@@ -21,10 +23,21 @@
     </tr>
 
     <tr>
-        <td style="text-align:right;">Unit</td>
+        @*<td style="text-align:right;">Unit</td>
+            <td>
+                <input type="radio" ng-model="Unit" name="P" value="Pieces" />Pieces
+                <input type="radio" ng-model="Unit" name="W" value="Weight" />Weight*@
+
+        <td style="text-align:right;">Description Language</td>
         <td>
-            <input type="radio" ng-model="Unit" name="P" value="Pieces" />Pieces
-            <input type="radio" ng-model="Unit" name="W" value="Weight" />Weight
+
+            <select multiple="multiple"  ng-model="Unit">
+                <option ng-repeat="c in ColorTabs" value="{{c.id}}">
+                    {{c.languages}}
+                </option>
+            </select>
+            {{Unit}}
+
         </td>
     </tr>
     <tr>
@@ -38,119 +51,142 @@
     </tr>
 
 
-    @*<tr>
-             <td style="text-align:right;">Languages</td>
-
-             <td>
-                 <label ng-repeat="c in ColorTabs">
-
-                 <input name="check" type="checkbox" ng-model="Languages" value="{{c.id}}" />
-                 {{c.languages}}
-
-             </label>
-
-               <label ng-repeat="c in ColorTabs">
-                 <input type="checkbox"
-                        data-ng-model="Languages"
-                        data-checklist-value="{{c.languages}}"
-                        id="{{c.languages}}">
-             </label>
-
-         {{c.languages}}
-        <input type="checkbox" name="check" ng-model="Languages" value="{{c.languages}}" />{{c.languages}}
-
-             </td>
-             </tr>*@
-
-
     <tr>
-        <td style="text-align:right;">Languages</td>
+
+
+        <td style="text-align:right;">UserGuide Languages</td>
+
         <td>
 
-            @*<label ng-repeat="c in ColorTabs" ng-model="Languages">
-                <input id="{{c.id}}" type="checkbox" ng-model="c.Selected" />
-                {{c.languages}}
-            </label>*@
-
-
-            <label ng-repeat="c in ColorTabs">
+            <span ng-repeat="c in ColorTabs">
                 <input type="checkbox" ng-model="c.Selected" />
                 <label>{{c.languages}}</label>
-            </label>
+            </span>
+
+
+            @*<label ng-repeat="c in ColorTabs">
+
+                         <input name="check" type="checkbox" ng-model="Languages" value="{{c.id}}" />
+                         {{c.languages}}
+
+                     </label>
+
+                       <label ng-repeat="c in ColorTabs">
+                         <input type="checkbox"
+                                data-ng-model="Languages"
+                                data-checklist-value="{{c.languages}}"
+                                id="{{c.languages}}">
+                     </label>
+
+                 {{c.languages}}
+                <input type="checkbox" name="check" ng-model="Languages" value="{{c.languages}}" />{{c.languages}}
+
+                     </td>
+                     </tr>*@
+
+
+            @*<td style="text-align:right;">Unit</td>
+                <td>
+
+                    <select multiple="multiple" ng-model="Unit">
+                        <option ng-repeat="c in ColorTabs" value="{{c.languages}}">
+                            {{c.languages}}
+                        </option>
+                    </select>
+                    {{Unit}}*@
+
+            @*<select multiple="multiple" ng-model="Languages" data-ng-options=" c.languages as c.languages for c in ColorTabs"> </select>{{Languages}}*@
+            @*<label ng-repeat="c in ColorTabs" ng-model="Languages">
+                    <input id="{{c.id}}" type="checkbox" ng-model="c.Selected" />
+                    {{c.languages}}
+                </label>*@
 
 
 
 
             @* <select name="multiple" multiple class="listMutiple">
-                <option ng-model="Languages" ng-repeat="c in ColorTabs" value="{{c.languages}}">{{c.languages}}</option>
-            </select>
+                            <option ng-model="Languages" ng-repeat="c in ColorTabs" value="{{c.languages}}">{{c.languages}}</option>
+                        </select>
 
-            <span ng-repeat="c in ColorTabs">
-                <label>
-                    <input type="checkbox" ng-model="Languages" />
-                    <span>{{c.languages}}</span>
-                </label>
-            </span>
+                        <span ng-repeat="c in ColorTabs">
+                            <label>
+                                <input type="checkbox" ng-model="Languages" />
+                                <span>{{c.languages}}</span>
+                            </label>
+                        </span>
 
-            <span ng-repeat="c in ColorTabs">
-                <input ng-model="Languages" id="{{c.languages}}" type="checkbox" value="{{c.languages}}" ng-checked="selection.indexOf(c.languages) > -1"/>
-                <label for="{{c.languages}}"></label>
-                {{c.languages}}
-            </span>
-           <span ng-repeat="c in ColorTabs">
-                <input type="checkbox" ng-model="Languages" value="c.languages" />
-                <label>{{c.languages}}</label>
-            </span>
-
-
+                        <span ng-repeat="c in ColorTabs">
+                            <input ng-model="Languages" id="{{c.languages}}" type="checkbox" value="{{c.languages}}" ng-checked="selection.indexOf(c.languages) > -1"/>
+                            <label for="{{c.languages}}"></label>
+                            {{c.languages}}
+                        </span>
+                       <span ng-repeat="c in ColorTabs">
+                            <input type="checkbox" ng-model="Languages" value="c.languages" />
+                            <label>{{c.languages}}</label>
+                        </span>
 
 
 
 
-           <select multiple="" name="multiple" id="colour"  >
-                    <option value="" selected>Select</option>
-                    <option  ng-repeat="c in ColorTabs"  value="{{c.languages}}">{{c.languages}}</option>
-                </select>
-
-        <select multiple class="listMutiple" name="multiple" ng-model="Languages" data-ng-options=" c.languages as c.languages for c in ColorTabs"> </select>
-
-        <select ng-options="c.id as c.languages for c in ColorTabs" ng-model="Languages" multiple="multiple"></select>
-
-        <select ng-options="c as c.languages for c in ColorTabs track by c.id" ng-model="Languages"></select>
-
-        <select multiple="" ng-model="Languages"
-                    ng-options="c.languages for c in ColorTabs">
-                <option>--</option>
-            </select>
-
-        <select multiple="" ng-model="Languages"
-                    ng-options="c.languages as c.languages for c in ColorTabs">
-                <option>--</option>
-            </select>
-
-        <select multiple ng-model="Languages" ng-options="c.languages as c.languages for c in ColorTabs"></select>
-
-        <select multiple="multiple" name="multiple" ng-model="Languages" ng-options="c.languages as c.languages for c in ColorTabs"></select>
 
 
-        <select ng-model="Languages" name="multiple" multiple class="listMutiple top5">
-                <option ng-selected="c.selected" ng-repeat="c in ColorTabs"
-                        value="{{c.languages}}">
-                    {{c.languages}}
-                </option>
-            </select>
+                       <select multiple="" name="multiple" id="colour"  >
+                                <option value="" selected>Select</option>
+                                <option  ng-repeat="c in ColorTabs"  value="{{c.languages}}">{{c.languages}}</option>
+                            </select>
 
-        <select size="6" name="ngvalueselect" multiple>
-                <option ng-repeat="c in ColorTabs" ng-value="c.languages">{{c.languages}}</option>
-            </select>*@
+                    <select multiple class="listMutiple" name="multiple" ng-model="Languages" data-ng-options=" c.languages as c.languages for c in ColorTabs"> </select>
 
+                    <select ng-options="c.id as c.languages for c in ColorTabs" ng-model="Languages" multiple="multiple"></select>
+
+                    <select ng-options="c as c.languages for c in ColorTabs track by c.id" ng-model="Languages"></select>
+
+                    <select multiple="" ng-model="Languages"
+                                ng-options="c.languages for c in ColorTabs">
+                            <option>--</option>
+                        </select>
+
+                    <select multiple="" ng-model="Languages"
+                                ng-options="c.languages as c.languages for c in ColorTabs">
+                            <option>--</option>
+                        </select>
+
+                    <select multiple ng-model="Languages" ng-options="c.languages as c.languages for c in ColorTabs"></select>
+
+                    <select multiple="multiple" name="multiple" ng-model="Languages" ng-options="c.languages as c.languages for c in ColorTabs"></select>
+
+
+                    <select ng-model="Languages" name="multiple" multiple class="listMutiple top5">
+                            <option ng-selected="c.selected" ng-repeat="c in ColorTabs"
+                                    value="{{c.languages}}">
+                                {{c.languages}}
+                            </option>
+                        </select>
+
+                    <select size="6" name="ngvalueselect" multiple>
+                            <option ng-repeat="c in ColorTabs" ng-value="c.languages">{{c.languages}}</option>
+                        </select>
+
+                </td>*@
+
+
+            @*<td style="text-align:right;">Unit</td>
+                <td>
+
+
+                        <label  ng-repeat="c in ColorTabs" >
+                            <input type="checkbox" ng-model="Unit" value="{{c.id}}">
+                            {{c.languages}}
+                        </label>
+
+                    {{Unit}}
+
+                </td>*@
         </td>
     </tr>
     <tr>
         <td></td>
-        <td>
-            
-        </td>
+        <td></td>
     </tr>
 
     <tr>
