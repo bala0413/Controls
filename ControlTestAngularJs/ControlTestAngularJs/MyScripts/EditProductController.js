@@ -11,30 +11,22 @@
                     var languageSeletced = ShareData.value.languages.split(',');
                     for (var i = 0; i < languageSeletced.length; i++) {
                         if (languageSeletced[i] == c.languages) {
-
                             c.Selected = true;
-
                         }
-
-
                     }
                 }
             })
 
-            $scope.ColorTabs.forEach(function (c) {
-                if (ShareData.value.languages != undefined && ShareData.value.languages != null) {
-                    var languageSeletced = ShareData.value.languages.split(',');
-                    for (var i = 0; i < languageSeletced.length; i++) {
-                        if (languageSeletced[i] == c.languages) {
-
-                            $scope.ProductTabs.unit = true;
-
-                        }
-
-
-                    }
-                }
-            })
+            //$scope.ColorTabs.forEach(function (c) {
+            //    if (ShareData.value.languages != undefined && ShareData.value.languages != null) {
+            //        var languageSeletced = ShareData.value.languages;
+            //        for (var i = 0; i < languageSeletced.length; i++) {
+            //            if (languageSeletced[i] == c.languages) {
+            //               ProductTabs.unit = true;
+            //            }
+            //        }
+            //    }
+            //})
 
             console.log($scope.ColorTabs);
         },
@@ -47,7 +39,6 @@
     
     function getProduct() {
         
-
         var promiseGetProduct = SPACRUDService.getProduct(ShareData.value.id);
 
         promiseGetProduct.then(function (pl) {

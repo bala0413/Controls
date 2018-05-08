@@ -18,13 +18,8 @@
     $scope.save = function () {
        
         var optionsCSV = '';
-
         $scope.ColorTabs.forEach(function (c) {
-    
-
-            if (c.id=c.Selected) {
-
-              
+            if (c.id=c.Selected) {              
                 if (optionsCSV) {
                     optionsCSV += ','
                 }
