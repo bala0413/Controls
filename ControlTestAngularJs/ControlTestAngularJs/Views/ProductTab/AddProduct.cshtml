@@ -12,25 +12,25 @@
         <td><input type="text" ng-model="Name" />  </td>
     </tr>
 
-    <tr>
+    @*<tr>
         <td style="text-align:right;">Color</td>
         <td>
             <select name="dropdown" ng-model="Color" data-ng-options="c.color as c.color for c in ColorTabs">
                 <option value="" selected>Select</option>
             </select>
         </td>
-    </tr>
+    </tr>*@
 
     <tr>
-        <td style="text-align:right;">Description Language</td>
+        <td style="text-align:right;">Color</td>
         <td>
-            <select multiple="multiple" ng-model="Unit">
+            <select multiple="multiple" ng-model="Color">
                 <option value="" selected>Select</option>
                 <option ng-repeat="c in ColorTabs" value="{{c.id}}">
-                    {{c.languages}}
+                    {{c.color}}
                 </option>
             </select>
-            {{Unit}}
+            {{Color}}
         </td>
     </tr>
 

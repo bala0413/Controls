@@ -43,8 +43,8 @@
         var ProductTabs = {
             Id: $scope.Id,
             Name: $scope.Name,
-            Color: $scope.Color,
-            Unit: $scope.Unit.toString(),
+            Color: $scope.Color.toString(),
+            //Unit: $scope.Unit.toString(),
             Price: $scope.Price,
             ExpiriyDate: $scope.ExpiriyDate,
             Languages: $scope.Languages,

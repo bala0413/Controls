@@ -16,26 +16,12 @@
                     }
                 }
             })
-
-            //$scope.ColorTabs.forEach(function (c) {
-            //    if (ShareData.value.languages != undefined && ShareData.value.languages != null) {
-            //        var languageSeletced = ShareData.value.languages;
-            //        for (var i = 0; i < languageSeletced.length; i++) {
-            //            if (languageSeletced[i] == c.languages) {
-            //                ProductTabs.unit= true;
-            //            }
-            //        }
-            //    }
-            //})
-
             console.log($scope.ColorTabs);
         },
             function (errorPl) {
                 $scope.error = errorPl;
             });
     }
-
-
     
     function getProduct() {
         
@@ -43,6 +29,8 @@
 
         promiseGetProduct.then(function (pl) {
             $scope.ProductTabs = pl.data;
+            var ColorData = $scope.ProductTabs.color.split(',');
+            $scope.SelectedColor = ColorData;
         },
         function (errorPl) {
             alert('product edit failure');
@@ -73,15 +61,14 @@
         //        message =  languages ;              
         //    }
         //    $scope.ProductTabs.languages = message;
-
         //}       
 
-
+        
         var ProductTabs = {
             Id: $scope.ProductTabs.id,
             Name: $scope.ProductTabs.name,
-            Color: $scope.ProductTabs.color,
-            Unit: $scope.ProductTabs.unit.toString(),
+            Color: $scope.SelectedColor.toString(),
+            //Unit: $scope.ProductTabs.unit.toString(),
             Price: $scope.ProductTabs.price,
             ExpiriyDate: $scope.ProductTabs.expiriyDate,
             Languages: $scope.ProductTabs.languages
