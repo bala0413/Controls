@@ -24,7 +24,8 @@
     <tr>
         <td style="text-align:right;">Description Language</td>
         <td>
-            <select multiple="multiple"  ng-model="Unit">
+            <select multiple="multiple" ng-model="Unit">
+                <option value="" selected>Select</option>
                 <option ng-repeat="c in ColorTabs" value="{{c.id}}">
                     {{c.languages}}
                 </option>

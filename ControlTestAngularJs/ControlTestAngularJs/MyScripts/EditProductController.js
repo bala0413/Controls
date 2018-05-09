@@ -22,7 +22,7 @@
             //        var languageSeletced = ShareData.value.languages;
             //        for (var i = 0; i < languageSeletced.length; i++) {
             //            if (languageSeletced[i] == c.languages) {
-            //               ProductTabs.unit = true;
+            //                ProductTabs.unit= true;
             //            }
             //        }
             //    }
@@ -48,8 +48,6 @@
             alert('product edit failure');
             $scope.error = 'failure loading Product', errorPl;
             });
-
-       
     }
      getProduct();
 
@@ -88,8 +86,6 @@
             ExpiriyDate: $scope.ProductTabs.expiriyDate,
             Languages: $scope.ProductTabs.languages
         };
-
-
 
 
         var promisePutProduct = SPACRUDService.put($scope.ProductTabs.id, ProductTabs);
