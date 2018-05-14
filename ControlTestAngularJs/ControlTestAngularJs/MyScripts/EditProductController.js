@@ -81,7 +81,7 @@
             Price: $scope.ProductTabs.price,
             ExpiriyDate: $scope.ProductTabs.expiriyDate,
             Languages: $scope.ProductTabs.languages,
-            Tag: $scope.ProductTabs.Tag.toString()
+            Tag: $scope.ProductTabs.tag.toString()
         };
 
 
