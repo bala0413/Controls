@@ -21,5 +21,6 @@ namespace ControlTestAngularJs.Models
         public Nullable<decimal> Price { get; set; }
         public Nullable<System.DateTime> ExpiriyDate { get; set; }
         public string Languages { get; set; }
+        public string Tag { get; set; }
     }
 }

@@ -1,5 +1,14 @@
-﻿app.controller('AddProductController', function ($scope, $location, SPACRUDService, ShareData) {
+﻿app.controller('AddProductController', function ($scope, $http, $location, SPACRUDService, ShareData) {
     //$scope.Id = 0;
+
+    $scope.loadNames = function (query) {
+        return $http.get('/MyScripts/name.json', { cache: true }).then(function (response) {
+            var name = response.data;
+            return name.filter(function (superhero) {
+                return superhero.text.toLowerCase().indexOf(query.toLowerCase()) != -1;
+            });
+        });
+    };  
 
     loadAllColorRecords();
     function loadAllColorRecords() {
@@ -48,7 +57,7 @@
             Price: $scope.Price,
             ExpiriyDate: $scope.ExpiriyDate,
             Languages: $scope.Languages,
-
+            Tag: $scope.Tag.toString(),
         };
         
 

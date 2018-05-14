@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <link href="~/MyScripts/ng-tags-input.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @section scripts{
         <script type="text/javascript" src="@Url.Content("~/Scripts/angular.js")"></script>
@@ -11,8 +13,10 @@
         <script type="text/javascript" src="@Url.Content("~/MyScripts/Module.js")"></script>
         <script src="~/MyScripts/Services.js"></script>
         <script src="~/MyScripts/Factory.js"></script>
-        <script type="text/javascript" src="@Url.Content("~/MyScripts/ShowProductsController.js")"></script>
+        <script src="~/Scripts/angular.min.js"></script>
+        <script src="~/MyScripts/ng-tags-input.min.js"></script>
         <script type="text/javascript" src="@Url.Content("~/MyScripts/AddProductController.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/MyScripts/ShowProductsController.js")"></script>
         <script type="text/javascript" src="@Url.Content("~/MyScripts/EditProductController.js")"></script>
         <script type="text/javascript" src="@Url.Content("~/MyScripts/DeleteProductController.js")"></script>
     }

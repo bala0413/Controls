@@ -3,6 +3,12 @@
     ViewBag.Title = "Add New Product";
 }
 
+<link rel="stylesheet" href="style.css">
+<link href="~/MyScripts/ng-tags-input.min.css" rel="stylesheet" />
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/MyScripts/ng-tags-input.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/MyScripts/AddProductController.js")"></script>
+
 <table><tr><td height="10px"></td></tr></table>
 
 <table cellpadding="4" cellspacing="4" width="90%" align="center" style="border:solid 2px red; padding-top:20px;">
@@ -13,13 +19,13 @@
     </tr>
 
     @*<tr>
-        <td style="text-align:right;">Color</td>
-        <td>
-            <select name="dropdown" ng-model="Color" data-ng-options="c.color as c.color for c in ColorTabs">
-                <option value="" selected>Select</option>
-            </select>
-        </td>
-    </tr>*@
+            <td style="text-align:right;">Color</td>
+            <td>
+                <select name="dropdown" ng-model="Color" data-ng-options="c.color as c.color for c in ColorTabs">
+                    <option value="" selected>Select</option>
+                </select>
+            </td>
+        </tr>*@
 
     <tr>
         <td style="text-align:right;">Color</td>
@@ -48,9 +54,19 @@
         <td style="text-align:right;">UserGuide Languages</td>
         <td>
             <span ng-repeat="c in ColorTabs">
-                <input type="checkbox" ng-model="c.Selected"/>
+                <input type="checkbox" ng-model="c.Selected" />
                 {{c.languages}}
             </span>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align:right;">Tag</td>
+        <td>
+            <tags-input ng-model="Tag" use-strings="true" min-length="2">
+                <auto-complete source="loadNames($query)"  min-length="1"></auto-complete>
+            </tags-input>
+            <span>Model: {{Tag}}</span>
         </td>
     </tr>
 
@@ -60,9 +76,9 @@
     </tr>
 
     @*<tr>
-        <td style="text-align:right;">Image</td>
-        <td>   <input type="file"></td>
-    </tr>*@
+            <td style="text-align:right;">Image</td>
+            <td>   <input type="file"></td>
+        </tr>*@
 
     <tr>
         <td></td>

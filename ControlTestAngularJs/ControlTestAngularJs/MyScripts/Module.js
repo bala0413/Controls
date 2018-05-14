@@ -1,4 +1,4 @@
-﻿var app = angular.module("ProductModule", ["ngRoute"]);
+﻿var app = angular.module("ProductModule", ["ngRoute", "ngTagsInput"]);
 
 app.factory("ShareData", function () {
     return { value: 0 }
