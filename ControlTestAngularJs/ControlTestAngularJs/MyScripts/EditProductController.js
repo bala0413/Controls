@@ -52,6 +52,11 @@
     $scope.multipleDemo = {};
     $scope.multipleDemo.payment = [];
 
+
+    $scope.availableCity = ['Madurai', 'Chennai', 'Coimbatore', 'Dindigul', 'Theni'];
+    $scope.multiple = {};
+    $scope.multiple.city = [];
+
     $scope.save = function () {
 
         var optionsCSV = '';
@@ -87,6 +92,7 @@
             Languages: $scope.ProductTabs.languages,
             Tag: $scope.ProductTabs.tag.toString(),
             Payment: $scope.ProductTabs.multipleDemo.payment.toString(),
+            City: $scope.ProductTabs.multiple.city.toString(),
         };
 
 

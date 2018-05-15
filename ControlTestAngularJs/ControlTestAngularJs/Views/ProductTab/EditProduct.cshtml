@@ -92,6 +92,19 @@
     </tr>
 
     <tr>
+        <td style="text-align:right;">City</td>
+        <td>
+            <ui-select multiple ng-model="ProductTabs.multiple.city" theme="bootstrap" ng-disabled="disabled" close-on-select="false" style="width: 300px;" title="Choose a city">
+                <ui-select-match placeholder="Select City">{{$item}}</ui-select-match>
+                <ui-select-choices repeat="city in availableCity | filter:$select.search">
+                    {{city}}
+                </ui-select-choices>
+            </ui-select>
+            <p>Selected: {{ProductTabs.multiple.city}}</p>
+        </td>
+    </tr>
+
+    <tr>
         <td></td>
         <td>
             <input type="button" value="Save" ng-click="save()" />

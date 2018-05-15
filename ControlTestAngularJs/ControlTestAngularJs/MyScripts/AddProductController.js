@@ -27,8 +27,12 @@
     $scope.multipleDemo = {};
     $scope.multipleDemo.payment = ['Credit', 'Debit'];
 
+    $scope.availableCity = ['Madurai', 'Chennai', 'Coimbatore', 'Dindigul', 'Theni'];
+    $scope.multiple = {};
+    $scope.multiple.city = ['Madurai'];
+
     $scope.save = function () {
-       
+        debugger;
         var optionsCSV = '';
         $scope.ColorTabs.forEach(function (c) {
             if (c.id=c.Selected) {              
@@ -51,8 +55,8 @@
 
         //}       
 
-
         var ProductTabs = {
+         
             Id: $scope.Id,
             Name: $scope.Name,
             Color: $scope.Color.toString(),
@@ -62,6 +66,7 @@
             Languages: $scope.Languages,
             Tag: $scope.Tag.toString(),
             Payment: $scope.multipleDemo.payment.toString(),
+            City: $scope.multiple.city.toString()
         };
         
 

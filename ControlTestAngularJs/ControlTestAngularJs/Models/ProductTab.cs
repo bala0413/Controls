@@ -23,5 +23,6 @@ namespace ControlTestAngularJs.Models
         public string Languages { get; set; }
         public string Tag { get; set; }
         public string Payment { get; set; }
+        public string City { get; set; }
     }
 }
