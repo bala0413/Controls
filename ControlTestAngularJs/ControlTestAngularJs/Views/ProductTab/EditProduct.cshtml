@@ -46,6 +46,14 @@
     </tr>
 
     <tr>
+        <td style="text-align:right;">Unit</td>
+        <td>
+            <input type="radio" ng-model="ProductTabs.unit" name="P" value="Pieces" />Pieces
+            <input type="radio" ng-model="ProductTabs.unit" name="W" value="Weight" />Weight
+        </td>
+    </tr>
+
+    <tr>
         <td style="text-align:right;">Expiry Date</td>
         <td><input type="date" ng-model="ProductTabs.expiriyDate" />  </td>
     </tr>
@@ -67,6 +75,19 @@
                 <auto-complete source="loadNames($query)" min-length="1"></auto-complete>
             </tags-input>
             <span>Model: {{ProductTabs.tag}}</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align:right;">Payment Mode</td>
+        <td>
+            <ui-select multiple ng-model="ProductTabs.multipleDemo.payment" theme="select2" use-strings="true" ng-disabled="disabled" style="width: 300px;">
+                <ui-select-match placeholder="Select payment option">{{$item}}</ui-select-match>
+                <ui-select-choices repeat="payments in availablePayments | filter:$select.search">
+                    {{payments}}
+                </ui-select-choices>
+            </ui-select>
+            <p>Selected: {{ProductTabs.multipleDemo.payment}}</p>
         </td>
     </tr>
 

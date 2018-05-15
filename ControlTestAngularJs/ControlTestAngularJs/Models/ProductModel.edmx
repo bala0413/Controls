@@ -17,6 +17,7 @@
           <Property Name="ExpiriyDate" Type="date" />
           <Property Name="Languages" Type="varchar" MaxLength="20" />
           <Property Name="Tag" Type="varchar" MaxLength="20" />
+          <Property Name="Payment" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityContainer Name="ProductModelStoreContainer">
           <EntitySet Name="ProductTab" EntityType="Self.ProductTab" Schema="dbo" store:Type="Tables" />
@@ -37,6 +38,7 @@
           <Property Name="ExpiriyDate" Type="DateTime" Precision="0" />
           <Property Name="Languages" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Tag" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Payment" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="ProductEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ProductTabs" EntityType="Self.ProductTab" />
@@ -50,6 +52,7 @@
           <EntitySetMapping Name="ProductTabs">
             <EntityTypeMapping TypeName="ProductModel.ProductTab">
               <MappingFragment StoreEntitySet="ProductTab">
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
                 <ScalarProperty Name="Tag" ColumnName="Tag" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

@@ -8,7 +8,7 @@
                 return superhero.text.toLowerCase().indexOf(query.toLowerCase()) != -1;
             });
         });
-    };  
+    };
 
     loadAllColorRecords();
     function loadAllColorRecords() {
@@ -23,6 +23,9 @@
             });      
     }
 
+    $scope.availablePayments = ['Credit', 'Debit', 'ATM', 'Internet Banking', 'Cash On Delivery'];
+    $scope.multipleDemo = {};
+    $scope.multipleDemo.payment = ['Credit', 'Debit'];
 
     $scope.save = function () {
        
@@ -53,11 +56,12 @@
             Id: $scope.Id,
             Name: $scope.Name,
             Color: $scope.Color.toString(),
-            //Unit: $scope.Unit.toString(),
             Price: $scope.Price,
+            Unit: $scope.Unit,
             ExpiriyDate: $scope.ExpiriyDate,
             Languages: $scope.Languages,
             Tag: $scope.Tag.toString(),
+            Payment: $scope.multipleDemo.payment.toString(),
         };
         
 

@@ -5,17 +5,22 @@
 
 <link rel="stylesheet" href="style.css">
 <link href="~/MyScripts/ng-tags-input.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+<link href="~/MyScripts/Select.css" rel="stylesheet" />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
 <script src="~/Scripts/angular.min.js"></script>
 <script src="~/MyScripts/ng-tags-input.min.js"></script>
+<script src="~/MyScripts/select.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-sanitize.js"></script>
 <script type="text/javascript" src="@Url.Content("~/MyScripts/AddProductController.js")"></script>
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
 <table><tr><td height="10px"></td></tr></table>
 
 <table cellpadding="4" cellspacing="4" width="90%" align="center" style="border:solid 2px red; padding-top:20px;">
 
     <tr>
         <td style="text-align:right;">Name</td>
-        <td><input type="text" ng-model="Name" />  </td>
+        <td><input type="text" ng-model="Name" /></td>
     </tr>
 
     @*<tr>
@@ -46,6 +51,14 @@
     </tr>
 
     <tr>
+        <td style="text-align:right;">Unit</td>
+        <td>
+            <input type="radio" ng-model="Unit" name="P" value="Pieces" />Pieces
+            <input type="radio" ng-model="Unit" name="W" value="Weight" />Weight
+        </td>
+    </tr>
+
+    <tr>
         <td style="text-align:right;">Expiry Date</td>
         <td><input type="date" ng-model="ExpiriyDate" />  </td>
     </tr>
@@ -64,9 +77,22 @@
         <td style="text-align:right;">Tag</td>
         <td>
             <tags-input ng-model="Tag" use-strings="true" min-length="2">
-                <auto-complete source="loadNames($query)"  min-length="1"></auto-complete>
+                <auto-complete source="loadNames($query)" min-length="1"></auto-complete>
             </tags-input>
             <span>Model: {{Tag}}</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align:right;">Payment Mode</td>
+        <td>
+            <ui-select multiple ng-model="multipleDemo.payment" theme="select2" use-strings="true" ng-disabled="disabled" style="width: 300px;">
+                <ui-select-match placeholder="Select payment option">{{$item}}</ui-select-match>
+                <ui-select-choices repeat="payments in availablePayments | filter:$select.search">
+                    {{payments}}
+                </ui-select-choices>
+            </ui-select>
+            <p>Selected: {{multipleDemo.payment}}</p>
         </td>
     </tr>
 

@@ -11,9 +11,11 @@
             <th>Color</th>
             @*<th>Description Language</th>*@
             <th>Price</th>
+            <th>Unit</th>
             <th>Expiry Date</th>
             <th>UserGuide Languages</th>
             <th>Tags</th>
+            <th>Payment</th>
             <th></th>
             <th></th>
         </tr>
@@ -23,11 +25,12 @@
             <td>{{pr.id}}</td>
             <td>{{pr.name}}</td>
             <td>{{pr.color}}</td>
-            @*<td>{{pr.unit}}</td>*@
             <td>{{pr.price}}</td>
+            <td>{{pr.unit}}</td>
             <td>{{pr.expiriyDate}}</td>
             <td>{{pr.languages}}</td>
             <td>{{pr.tag}}</td>
+            <td>{{pr.payment}}</td>
             <td><a ng-click="editProduct(pr)">Edit</a></td>
             <td><a ng-click="deleteProduct(pr.id)">Delete</a></td>
         </tr>

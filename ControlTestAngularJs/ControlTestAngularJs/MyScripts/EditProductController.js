@@ -46,7 +46,11 @@
             $scope.error = 'failure loading Product', errorPl;
             });
     }
-     getProduct();
+    getProduct();
+
+    $scope.availablePayments = ['Credit', 'Debit', 'ATM', 'Internet Banking', 'Cash On Delivery'];
+    $scope.multipleDemo = {};
+    $scope.multipleDemo.payment = [];
 
     $scope.save = function () {
 
@@ -77,11 +81,12 @@
             Id: $scope.ProductTabs.id,
             Name: $scope.ProductTabs.name,
             Color: $scope.SelectedColor.toString(),
-            //Unit: $scope.ProductTabs.unit.toString(),
             Price: $scope.ProductTabs.price,
+            Unit: $scope.ProductTabs.unit,
             ExpiriyDate: $scope.ProductTabs.expiriyDate,
             Languages: $scope.ProductTabs.languages,
-            Tag: $scope.ProductTabs.tag.toString()
+            Tag: $scope.ProductTabs.tag.toString(),
+            Payment: $scope.ProductTabs.multipleDemo.payment.toString(),
         };
 
 
